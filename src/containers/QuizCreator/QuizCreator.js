@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from '../../axios/axios-quiz'
 import classes from './QuizCreator.css'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
@@ -67,8 +68,21 @@ class QuizCreator extends Component {
         })
     }
 
-    addQuizHandler = () => {
-        console.log(this.state.quiz)
+    addQuizHandler = async event => {
+
+        try {
+            await axios.post('quizes.json', this.state.quiz)
+            this.setState({
+                quiz: [],
+                rightAnswerId: 1,
+                isFormValid: false,
+                formControls: createFormControls()
+            })
+        } catch(err) {
+
+        }
+
+
     }
 
     selectChangeHandler = event => {

@@ -3,6 +3,7 @@ import classes from './Auth.css'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
 import is from 'is_js'
+import axios from 'axios'
 
 
 class Auth extends Component {
@@ -37,11 +38,36 @@ class Auth extends Component {
         }
     }
 
-    loginHandler = () => {
+    loginHandler = async (event) => {
+        event.preventDefault()
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
 
+        try {
+            const res = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAcM1PPOJWRuUk8FOV3STGyPJoSdQIgG-k', authData)
+            console.log(res)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
-    registerHandler = () => {
+    registerHandler = async (event) => {
+        event.preventDefault()
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
+
+        try {
+            const res = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAcM1PPOJWRuUk8FOV3STGyPJoSdQIgG-k', authData)
+            console.log(res)
+        } catch (err) {
+            console.log(err)
+        }
 
     }
 
@@ -56,8 +82,10 @@ class Auth extends Component {
                         {this.renderInputs()}
 
 
-                        <Button type='success' onClick={this.loginHandler} disabled={!this.state.isFormValid}>Enter</Button>
-                        <Button type='primary' onClick={this.registerHandler} disabled={!this.state.isFormValid}>Register</Button>
+                        <Button type='success' onClick={this.loginHandler}
+                                disabled={!this.state.isFormValid}>Enter</Button>
+                        <Button type='primary' onClick={this.registerHandler}
+                                disabled={!this.state.isFormValid}>Register</Button>
 
                     </form>
                 </div>
