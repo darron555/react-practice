@@ -5,11 +5,28 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
+import {createStore, applyMiddleware, compose} from 'redux'
+import {Provider} from 'react-redux'
+import rootReducers from './store/reducers/rootReducers'
+import reduxThunk from 'redux-thunk'
+
+const composeEnhancers =
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+            // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+        }) : compose;
+
+
+const store = createStore(rootReducers, composeEnhancers(applyMiddleware(reduxThunk)))
+
 
 const app = (
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}r>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 )
 ReactDOM.render(app, document.getElementById('root'));
 
