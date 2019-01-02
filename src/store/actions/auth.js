@@ -11,7 +11,7 @@ export function auth(email, password, isLogin) {
 
         let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAcM1PPOJWRuUk8FOV3STGyPJoSdQIgG-k'
         if (isLogin) {
-             url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAcM1PPOJWRuUk8FOV3STGyPJoSdQIgG-k'
+            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAcM1PPOJWRuUk8FOV3STGyPJoSdQIgG-k'
         }
 
         const res = await axios.post(url, authData)
@@ -25,8 +25,6 @@ export function auth(email, password, isLogin) {
 
         dispatch(authSuccess(data.idToken))
         dispatch(autoLogout(data.expiresIn))
-
-
     }
 }
 
@@ -45,6 +43,7 @@ export function autoLogout(time) {
 
 export function logout() {
 
+
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
     localStorage.removeItem('expirationDate')
@@ -61,7 +60,7 @@ export function authLogin() {
         if (!token) {
             dispatch(logout)
         } else {
-            const expirationDate = new Date(localStorage.getItem('token'))
+            const expirationDate = new Date(localStorage.getItem('expirationDate'))
             if (expirationDate <= new Date()) {
                 dispatch(logout)
             } else {
