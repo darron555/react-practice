@@ -30,21 +30,21 @@ export function fetchQuizes() {
 
 export function fetchQuizesStart() {
     return {
-        type:FETCH_QUIZES_START,
+        type: FETCH_QUIZES_START,
 
     }
 }
 
 export function fetchQuizesSuccess(quizes) {
     return {
-        type:FETCH_QUIZES_SUCCESS,
+        type: FETCH_QUIZES_SUCCESS,
         quizes
     }
 }
 
 export function fetchQuizesError(error) {
     return {
-        type:FETCH_QUIZES_ERROR,
+        type: FETCH_QUIZES_ERROR,
         error
     }
 }
@@ -68,11 +68,10 @@ export function fetchQuizById(quizId) {
 
 export function fetchQuizSuccess(quiz) {
     return {
-        type:FETCH_QUIZ_SUCCESS,
+        type: FETCH_QUIZ_SUCCESS,
         quiz
     }
 }
-
 
 export function quizAnswerClick(answerId) {
     return (dispatch, getState) => {
@@ -96,19 +95,15 @@ export function quizAnswerClick(answerId) {
 
             dispatch(quizSetState({[answerId]: 'success'}, results))
 
-
         } else {
             results[question.id] = 'error'
             dispatch(quizSetState({[answerId]: 'error'}, results))
-
         }
 
         const timeout = window.setTimeout(() => {
 
             if (isQuizFinished(state)) {
-
                 dispatch(finishQuiz())
-
             } else {
                 let actQ = state.activeQuestion + 1
                 dispatch(quizNextQuestion(actQ))

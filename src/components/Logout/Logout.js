@@ -4,12 +4,12 @@ import {Redirect} from "react-router-dom";
 import {logout} from "../../store/actions/auth";
 
 class Logout extends Component {
+
     render() {
         return (
-            <Redirect to={'/'} />
+            <Redirect to={'/'}/>
         );
     }
-
 
     componentDidMount() {
         this.props.logout()
@@ -19,7 +19,7 @@ class Logout extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        logout: () => dispatch (logout())
+        logout: () => dispatch(logout())
     }
 }
 

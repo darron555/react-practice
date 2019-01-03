@@ -2,12 +2,11 @@ export function createControl(config, validation) {
     return {
         ...config,
         validation,
-        valid:!validation,
-        touched:false,
-        value:''
+        valid: !validation,
+        touched: false,
+        value: ''
     }
 }
-
 
 export function ValidateControl(value, validation = null) {
     if (!validation) {
@@ -21,7 +20,6 @@ export function ValidateControl(value, validation = null) {
     }
 
     return isValid
-
 }
 
 export function validateForm(formControls) {

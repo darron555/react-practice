@@ -8,9 +8,8 @@ export function createQuizQuestion(item) {
     }
 }
 
-
 export function finishCreateQuize() {
-    return  async (dispatch, getState) => {
+    return async (dispatch, getState) => {
 
         await axios.post('quizes.json', getState().create.quiz)
         resetQuizeCreation()
@@ -18,7 +17,7 @@ export function finishCreateQuize() {
 }
 
 export function resetQuizeCreation() {
-    return   {
-       type: RESET_QUIZ_CREATION
+    return {
+        type: RESET_QUIZ_CREATION
     }
 }

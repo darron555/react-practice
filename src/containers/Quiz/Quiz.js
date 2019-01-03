@@ -22,7 +22,7 @@ class Quiz extends Component {
             <div className={classes.Quiz}>
                 <div className={classes.QuizWrapper}>
                     <h1>Answer the questions</h1>
-                    {this.props.loading || !this.props.quiz  ? <Loader/> :
+                    {this.props.loading || !this.props.quiz ? <Loader/> :
 
                         this.props.isFinished ? <FinishedQuiz results={this.props.results} quiz={this.props.quiz}
                                                               onRetry={this.props.retryQuiz}/> :

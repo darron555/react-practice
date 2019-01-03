@@ -15,7 +15,6 @@ const initialState = {
     isFinished: false,
     results: {}, // {[id]: 'success'  'error'}
     quiz: null,
-
 }
 
 export default function quizReducer(state = initialState, action) {
@@ -54,11 +53,9 @@ export default function quizReducer(state = initialState, action) {
             }
         case QUIZ_RETRY:
             return {
-                ...state, activeQuestion: 0, answerState: null, isFinished:false, results: {}
+                ...state, activeQuestion: 0, answerState: null, isFinished: false, results: {}
             }
         default:
             return state
     }
-
-
 }

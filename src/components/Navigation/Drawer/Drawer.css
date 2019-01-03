@@ -14,7 +14,7 @@
 }
 
 .Drawer.close {
-    transform:translateX(-300px);
+    transform: translateX(-300px);
 }
 
 .Drawer ul {
@@ -24,8 +24,9 @@
 }
 
 .Drawer ul li {
-    margin-bottom:  15px;
+    margin-bottom: 15px;
 }
+
 .Drawer ul li a {
     color: #363d54;
     font-size: 30px;
@@ -35,6 +36,7 @@
     padding: 0 20px 10px 20px;
     transition: opacity .3s;
 }
-.Drawer ul li a :hover, .active{
+
+.Drawer ul li a :hover, .active {
     opacity: .7;
 }

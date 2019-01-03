@@ -5,8 +5,7 @@ const MenuToggle = (props) => {
 
     const cls = [
         classes.MenuToggle,
-        'fa',
-
+        'fa'
     ]
 
     if (props.isOpen) {

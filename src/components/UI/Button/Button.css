@@ -13,8 +13,9 @@
 .Button:focus {
     outline: none;
 }
+
 .Button:active {
-    box-shadow: inset 2px 2px 1px rgba(0,0,0,.3);
+    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
 }
 
 .Button:disabled {
@@ -30,8 +31,9 @@
 .error {
     background: rgba(240, 87, 108, 1);
 }
+
 .primary {
     background: #2884f6;
-    color:#fff
+    color: #fff
 }
 

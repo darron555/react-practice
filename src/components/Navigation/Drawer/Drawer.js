@@ -3,9 +3,6 @@ import classes from './Drawer.css'
 import Backdrop from '../../UI/Backdrop/Backdrop'
 import {NavLink} from "react-router-dom";
 
-
-
-
 class Drawer extends React.Component {
 
     clickHandler = () => {
@@ -13,7 +10,7 @@ class Drawer extends React.Component {
     }
 
     renderLinks(links) {
-        return links.map((link,index) => {
+        return links.map((link, index) => {
             return (
                 <li key={index}>
                     <NavLink
@@ -37,7 +34,6 @@ class Drawer extends React.Component {
 
         const links = [
             {to: '/', label: 'List', exact: true},
-
         ]
 
         if (this.props.isAuthenticated) {
@@ -54,7 +50,7 @@ class Drawer extends React.Component {
                         {this.renderLinks(links)}
                     </ul>
                 </nav>
-                {this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null  }
+                {this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}
 
             </React.Fragment>
         )

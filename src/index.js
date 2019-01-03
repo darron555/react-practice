@@ -17,14 +17,12 @@ const composeEnhancers =
             // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
         }) : compose;
 
-
 const store = createStore(rootReducers, composeEnhancers(applyMiddleware(reduxThunk)))
 
-
 const app = (
-    <Provider store={store}r>
+    <Provider store={store} r>
         <BrowserRouter>
-            <App />
+            <App/>
         </BrowserRouter>
     </Provider>
 )

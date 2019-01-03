@@ -6,7 +6,6 @@ import is from 'is_js'
 import {connect} from "react-redux"
 import {auth} from "../../store/actions/auth"
 
-
 class Auth extends Component {
 
     state = {
@@ -46,7 +45,6 @@ class Auth extends Component {
             true
         )
         event.preventDefault()
-
     }
 
     registerHandler = (event) => {
@@ -58,7 +56,6 @@ class Auth extends Component {
         )
     }
 
-
     render() {
         return (
             <div className={classes.Auth}>
@@ -67,7 +64,6 @@ class Auth extends Component {
 
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
                         {this.renderInputs()}
-
 
                         <Button type='success' onClick={this.loginHandler}
                                 disabled={!this.state.isFormValid}>Enter</Button>
@@ -78,10 +74,6 @@ class Auth extends Component {
                 </div>
             </div>
         );
-    }
-
-    submitHandler = () => {
-
     }
 
     renderInputs() {
@@ -111,7 +103,6 @@ class Auth extends Component {
         control.valid = this.validateControl(control.value, control.validation)
 
         formControls[controlName] = control
-
 
         let isFormValid = true
 
@@ -145,16 +136,13 @@ class Auth extends Component {
         }
 
         return isValid
-
     }
-
-
 }
 
 function mapDispatchToProps(dispatch) {
-        return {
-            auth: (email, password, isLogin) => dispatch (auth(email, password, isLogin))
-        }
+    return {
+        auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+    }
 }
 
 export default connect(null, mapDispatchToProps)(Auth);
